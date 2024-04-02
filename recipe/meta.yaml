@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: "{{ PYTHON }} -m pip install --no-deps --no-build-isolation . --ignore-installed -vv "
 
 requirements:
   host:
@@ -41,6 +41,10 @@ about:
   summary: Generate HTML reports from Junit results
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/46418
+    reason: Client request
   recipe-maintainers:
+    - ianaobi
     - pg-hbk
     - sy-hbk
