@@ -18,12 +18,14 @@ requirements:
   host:
     - pip
     - python
+    - wheel
   run:
     - python
 
 test:
   commands:
     - junit2html --help  # [unix]
+    - pip check
   imports:
     - junit2htmlreport
     - junit2htmlreport.matrix
@@ -39,6 +41,8 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Generate HTML reports from Junit results
+  doc_url: https://gitlab.com/inorton/junit2html
+  dev_url: https://gitlab.com/inorton/junit2html
 
 extra:
   anaconda-services:
