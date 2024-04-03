@@ -46,6 +46,5 @@ extra:
     reason: Client request
   recipe-maintainers:
     - ianaobi
-    - bkreider
     - pg-hbk
     - sy-hbk
