@@ -12,18 +12,20 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: "{{ PYTHON }} -m pip install --no-deps --no-build-isolation . --ignore-installed -vv "
 
 requirements:
   host:
     - pip
     - python
+    - wheel
   run:
     - python
 
 test:
   commands:
     - junit2html --help  # [unix]
+    - pip check
   imports:
     - junit2htmlreport
     - junit2htmlreport.matrix
@@ -39,8 +41,14 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Generate HTML reports from Junit results
+  doc_url: https://gitlab.com/inorton/junit2html
+  dev_url: https://gitlab.com/inorton/junit2html
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/46418
+    reason: Client request
   recipe-maintainers:
+    - ianaobi
     - pg-hbk
     - sy-hbk
